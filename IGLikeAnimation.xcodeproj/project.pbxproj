@@ -7,18 +7,24 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		734935B72BD4EE8F00320C31 /* LikeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 734935B62BD4EE8F00320C31 /* LikeButton.swift */; };
+		734935B92BD4F1E200320C31 /* ActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 734935B82BD4F1E200320C31 /* ActionButton.swift */; };
+		734935BC2BD4F3F100320C31 /* ProfileHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 734935BB2BD4F3F100320C31 /* ProfileHeader.swift */; };
 		73E012782BD4C57C00333958 /* IGLikeAnimationApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E012772BD4C57C00333958 /* IGLikeAnimationApp.swift */; };
-		73E0127A2BD4C57C00333958 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E012792BD4C57C00333958 /* ContentView.swift */; };
 		73E0127C2BD4C58000333958 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 73E0127B2BD4C58000333958 /* Assets.xcassets */; };
 		73E0127F2BD4C58000333958 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 73E0127E2BD4C58000333958 /* Preview Assets.xcassets */; };
+		73E012862BD4D27600333958 /* IGPostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E012852BD4D27600333958 /* IGPostView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		734935B62BD4EE8F00320C31 /* LikeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeButton.swift; sourceTree = "<group>"; };
+		734935B82BD4F1E200320C31 /* ActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionButton.swift; sourceTree = "<group>"; };
+		734935BB2BD4F3F100320C31 /* ProfileHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeader.swift; sourceTree = "<group>"; };
 		73E012742BD4C57C00333958 /* IGLikeAnimation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IGLikeAnimation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		73E012772BD4C57C00333958 /* IGLikeAnimationApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IGLikeAnimationApp.swift; sourceTree = "<group>"; };
-		73E012792BD4C57C00333958 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		73E0127B2BD4C58000333958 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		73E0127E2BD4C58000333958 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		73E012852BD4D27600333958 /* IGPostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IGPostView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -32,6 +38,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		734935B52BD4EE6800320C31 /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				734935B62BD4EE8F00320C31 /* LikeButton.swift */,
+				734935B82BD4F1E200320C31 /* ActionButton.swift */,
+			);
+			path = Buttons;
+			sourceTree = "<group>";
+		};
+		734935BA2BD4F3D600320C31 /* SubViews */ = {
+			isa = PBXGroup;
+			children = (
+				734935BB2BD4F3F100320C31 /* ProfileHeader.swift */,
+			);
+			path = SubViews;
+			sourceTree = "<group>";
+		};
 		73E0126B2BD4C57C00333958 = {
 			isa = PBXGroup;
 			children = (
@@ -52,7 +75,9 @@
 			isa = PBXGroup;
 			children = (
 				73E012772BD4C57C00333958 /* IGLikeAnimationApp.swift */,
-				73E012792BD4C57C00333958 /* ContentView.swift */,
+				73E012852BD4D27600333958 /* IGPostView.swift */,
+				734935BA2BD4F3D600320C31 /* SubViews */,
+				734935B52BD4EE6800320C31 /* Buttons */,
 				73E0127B2BD4C58000333958 /* Assets.xcassets */,
 				73E0127D2BD4C58000333958 /* Preview Content */,
 			);
@@ -137,8 +162,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				73E0127A2BD4C57C00333958 /* ContentView.swift in Sources */,
+				73E012862BD4D27600333958 /* IGPostView.swift in Sources */,
+				734935B72BD4EE8F00320C31 /* LikeButton.swift in Sources */,
 				73E012782BD4C57C00333958 /* IGLikeAnimationApp.swift in Sources */,
+				734935BC2BD4F3F100320C31 /* ProfileHeader.swift in Sources */,
+				734935B92BD4F1E200320C31 /* ActionButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
