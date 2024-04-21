@@ -13,30 +13,36 @@ struct IGPostView: View {
     
     var body: some View {
         
-        VStack(alignment: .leading, spacing: 8) {
-            
-            // profile image and name
-            ProfileHeader()
-            
-            Image(.cherryblossom)
-                .resizable()
-                .scaledToFit()
-                .frame(maxWidth: .infinity)
-            
-            // bottom buttons section
-            HStack {
+        ZStack {
+            VStack(alignment: .leading, spacing: 8) {
                 
-                LikeButton(isLiked: isLiked) {
-                    isLiked.toggle()
-                }
+                // profile image and name
+                ProfileHeader()
                 
-                /* this time, we just print out some text for the following buttons. */
-                ActionButton(imageName: "message") { print("comment is tapped") }
-                ActionButton(imageName: "paperplane") { print("share is tapped") }
-                Spacer()
-                ActionButton(imageName: "bookmark") { print("save is tapped") }
+                Image(.cherryblossom)
+                    .resizable()
+                    .scaledToFit()
+                    .frame(maxWidth: .infinity)
                 
-            }.padding(.horizontal, 16)
+                // bottom buttons section
+                HStack {
+                    
+                    LikeButton(isLiked: isLiked) {
+                        isLiked.toggle()
+                    }
+                    
+                    /* this time, we just print out some text for the following buttons. */
+                    ActionButton(imageName: "message") { print("comment is tapped") }
+                    ActionButton(imageName: "paperplane") { print("share is tapped") }
+                    Spacer()
+                    ActionButton(imageName: "bookmark") { print("save is tapped") }
+                    
+                }.padding(.horizontal, 16)
+            }
+            
+            // display heart when like button isPressed
+            HeartAnimationView()
+                .opacity(isLiked ? 1.0 : 0.0)
         }
     }
 }
