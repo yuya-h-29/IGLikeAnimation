@@ -41,8 +41,11 @@ struct IGPostView: View {
             }
             
             // display heart when like button isPressed
-            HeartAnimationView()
+            LikeEffectView()
                 .opacity(isLiked ? 1.0 : 0.0)
+                .scaleEffect(isLiked ? 1.0 : 0.0)
+                .rotationEffect(.degrees(isLiked ? 0 : Double.random(in: -60...60)))
+                .animation(.spring(dampingFraction: 0.5), value: isLiked)
         }
     }
 }

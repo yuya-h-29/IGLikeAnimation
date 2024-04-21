@@ -1,5 +1,5 @@
 //
-//  HeartAnimationView.swift
+//  LikeEffectView.swift
 //  IGLikeAnimation
 //
 //  Created by Yuya Harada on 2024/04/21.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct HeartAnimationView: View {
+struct LikeEffectView: View {
     var body: some View {
         Image(systemName: "heart.fill")
             .font(.system(size: 100))
@@ -16,5 +16,5 @@ struct HeartAnimationView: View {
 }
 
 #Preview {
-    HeartAnimationView()
+    LikeEffectView()
 }
