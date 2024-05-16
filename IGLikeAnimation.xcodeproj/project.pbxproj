@@ -10,7 +10,7 @@
 		734935B72BD4EE8F00320C31 /* LikeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 734935B62BD4EE8F00320C31 /* LikeButton.swift */; };
 		734935B92BD4F1E200320C31 /* ActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 734935B82BD4F1E200320C31 /* ActionButton.swift */; };
 		734935BC2BD4F3F100320C31 /* ProfileHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 734935BB2BD4F3F100320C31 /* ProfileHeader.swift */; };
-		734935BE2BD50C7700320C31 /* LikeEffectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 734935BD2BD50C7600320C31 /* LikeEffectView.swift */; };
+		734935BE2BD50C7700320C31 /* LikeAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 734935BD2BD50C7600320C31 /* LikeAnimationView.swift */; };
 		73E012782BD4C57C00333958 /* IGLikeAnimationApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E012772BD4C57C00333958 /* IGLikeAnimationApp.swift */; };
 		73E0127C2BD4C58000333958 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 73E0127B2BD4C58000333958 /* Assets.xcassets */; };
 		73E0127F2BD4C58000333958 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 73E0127E2BD4C58000333958 /* Preview Assets.xcassets */; };
@@ -21,7 +21,7 @@
 		734935B62BD4EE8F00320C31 /* LikeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeButton.swift; sourceTree = "<group>"; };
 		734935B82BD4F1E200320C31 /* ActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionButton.swift; sourceTree = "<group>"; };
 		734935BB2BD4F3F100320C31 /* ProfileHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeader.swift; sourceTree = "<group>"; };
-		734935BD2BD50C7600320C31 /* LikeEffectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeEffectView.swift; sourceTree = "<group>"; };
+		734935BD2BD50C7600320C31 /* LikeAnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeAnimationView.swift; sourceTree = "<group>"; };
 		73E012742BD4C57C00333958 /* IGLikeAnimation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IGLikeAnimation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		73E012772BD4C57C00333958 /* IGLikeAnimationApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IGLikeAnimationApp.swift; sourceTree = "<group>"; };
 		73E0127B2BD4C58000333958 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -53,7 +53,7 @@
 			isa = PBXGroup;
 			children = (
 				734935BB2BD4F3F100320C31 /* ProfileHeader.swift */,
-				734935BD2BD50C7600320C31 /* LikeEffectView.swift */,
+				734935BD2BD50C7600320C31 /* LikeAnimationView.swift */,
 			);
 			path = SubViews;
 			sourceTree = "<group>";
@@ -165,7 +165,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				734935BE2BD50C7700320C31 /* LikeEffectView.swift in Sources */,
+				734935BE2BD50C7700320C31 /* LikeAnimationView.swift in Sources */,
 				73E012862BD4D27600333958 /* IGPostView.swift in Sources */,
 				734935B72BD4EE8F00320C31 /* LikeButton.swift in Sources */,
 				73E012782BD4C57C00333958 /* IGLikeAnimationApp.swift in Sources */,
