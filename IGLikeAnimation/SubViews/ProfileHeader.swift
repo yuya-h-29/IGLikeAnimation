@@ -13,7 +13,7 @@ struct ProfileHeader: View {
             Image(systemName: "person.circle")
                 .font(.system(size: 40))
             
-            Text("yuya")
+            Text("IGLike_animation123")
         }.padding(.horizontal, 4)
     }
 }
