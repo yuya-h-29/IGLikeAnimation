@@ -12,6 +12,7 @@ struct AnimationValues {
     var scale = 0.0
     var angle = Angle.zero
     var verticalOffset = 0.0
+    var horizontalOffset = 0.0
 }
 
 struct LikeAnimationView: View {
@@ -35,7 +36,7 @@ struct LikeAnimationView: View {
                     .opacity(value.opacity)
                     .scaleEffect(value.scale)
                     .rotationEffect(value.angle)
-                    .offset(y: value.verticalOffset)
+                    .offset(x: value.horizontalOffset, y: value.verticalOffset)
                 } keyframes: { _ in
                     // add keyframes in here...
                     
@@ -58,6 +59,12 @@ struct LikeAnimationView: View {
                     KeyframeTrack(\.verticalOffset) {
                         LinearKeyframe(0.0, duration: totalDuration * 0.7)
                         LinearKeyframe(-700, duration: totalDuration * 0.3, timingCurve: .easeIn)
+                    }
+                    
+                    KeyframeTrack(\.horizontalOffset) {
+                        let offset = Double.random(in: -40..<40)
+                        LinearKeyframe(0.0, duration: totalDuration * 0.7)
+                        LinearKeyframe(offset, duration: totalDuration * 0.3)
                     }
                 }
     }
