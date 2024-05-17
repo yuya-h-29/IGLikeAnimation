@@ -44,8 +44,9 @@ struct LikeAnimationView: View {
                     }
                     
                     KeyframeTrack(\.angle) {
-                        CubicKeyframe(.degrees(15), duration: totalDuration * 0.2)
-                        CubicKeyframe(.degrees(-15), duration: totalDuration * 0.3)
+                        let angle = Double.random(in: -30..<30)
+                        CubicKeyframe(.degrees(angle), duration: totalDuration * 0.2)
+                        CubicKeyframe(.degrees(-angle), duration: totalDuration * 0.3)
                         LinearKeyframe(.degrees(.zero), duration: totalDuration * 0.2)
                     }
                     
