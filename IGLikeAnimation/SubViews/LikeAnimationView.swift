@@ -17,15 +17,16 @@ struct AnimationValues {
 
 struct LikeAnimationView: View {
     
-    var shouldAnimate: Bool
+    var isLiked: Bool
     
     @State private var animationCount = 0
     private let totalDuration = 1.0
     
     var body: some View {
         LikeView()
-            .onChange(of: shouldAnimate, {
-                guard shouldAnimate else { return }
+            .onChange(of: isLiked, {
+                // when the value of is liked is true, starts animation.
+                guard isLiked else { return }
                 animationCount += 1
             })
             .keyframeAnimator(
@@ -38,14 +39,13 @@ struct LikeAnimationView: View {
                     .rotationEffect(value.angle)
                     .offset(x: value.horizontalOffset, y: value.verticalOffset)
                 } keyframes: { _ in
-                    // add keyframes in here...
-                    
+
                     KeyframeTrack(\.opacity) {
                         LinearKeyframe(1.0, duration: totalDuration * 0.4, timingCurve: .easeIn)
                     }
                     
                     KeyframeTrack(\.angle) {
-                        let angle = Double.random(in: -30..<30)
+                        let angle = Double.random(in: -30...30)
                         CubicKeyframe(.degrees(angle), duration: totalDuration * 0.2)
                         CubicKeyframe(.degrees(-angle), duration: totalDuration * 0.3)
                         LinearKeyframe(.degrees(.zero), duration: totalDuration * 0.2)
@@ -58,13 +58,13 @@ struct LikeAnimationView: View {
                     
                     KeyframeTrack(\.verticalOffset) {
                         LinearKeyframe(0.0, duration: totalDuration * 0.7)
-                        LinearKeyframe(-700, duration: totalDuration * 0.3, timingCurve: .easeIn)
+                        LinearKeyframe(-500, duration: totalDuration * 0.3, timingCurve: .easeIn)
                     }
                     
                     KeyframeTrack(\.horizontalOffset) {
-                        let offset = Double.random(in: -40..<40)
-                        LinearKeyframe(0.0, duration: totalDuration * 0.7)
-                        LinearKeyframe(offset, duration: totalDuration * 0.3)
+                        let offset = Double.random(in: -40...40)
+                        LinearKeyframe(0.0, duration: totalDuration * 0.85)
+                        LinearKeyframe(offset, duration: totalDuration * 0.15)
                     }
                 }
     }
@@ -84,5 +84,5 @@ struct LikeView: View {
 }
 
 #Preview {
-    LikeAnimationView(shouldAnimate: true)
+    LikeAnimationView(isLiked: true)
 }

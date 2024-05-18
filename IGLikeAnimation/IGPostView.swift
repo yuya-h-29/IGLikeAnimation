@@ -43,7 +43,7 @@ struct IGPostView: View {
             }
             
             // display heart when like button isPressed
-            LikeAnimationView(shouldAnimate: isLiked)
+            LikeAnimationView(isLiked: isLiked)
         }
     }
     
