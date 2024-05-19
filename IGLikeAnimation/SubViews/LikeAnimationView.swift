@@ -21,59 +21,71 @@ struct LikeAnimationView: View {
     
     @State private var animationCount = 0
     private let totalDuration = 1.0
+    private let heartSize = 80.0
     
     var body: some View {
-        LikeView()
-            .onChange(of: isLiked, {
-                // when the value of is liked is true, starts animation.
-                guard isLiked else { return }
-                animationCount += 1
-            })
-            .keyframeAnimator(
-                initialValue: AnimationValues(),
-                trigger: animationCount
-            ) { content, value in
-                content
-                    .opacity(value.opacity)
-                    .scaleEffect(value.scale)
-                    .rotationEffect(value.angle)
-                    .offset(x: value.horizontalOffset, y: value.verticalOffset)
-                } keyframes: { _ in
+        
+        GeometryReader { proxy in
+            LikeView(size: heartSize)
+                .onChange(of: isLiked, {
+                    guard isLiked else { return }
+                    animationCount += 1
+                })
+                .keyframeAnimator(
+                    initialValue: AnimationValues(),
+                    trigger: animationCount
+                ) { content, value in
+                    content
+                        .opacity(value.opacity)
+                        .scaleEffect(value.scale)
+                        .rotationEffect(value.angle)
+                        .offset(x: value.horizontalOffset, y: value.verticalOffset)
+                    } keyframes: { _ in
 
-                    KeyframeTrack(\.opacity) {
-                        LinearKeyframe(1.0, duration: totalDuration * 0.4, timingCurve: .easeIn)
+                        KeyframeTrack(\.opacity) {
+                            LinearKeyframe(1.0, duration: totalDuration * 0.4, timingCurve: .easeIn)
+                        }
+                        
+                        KeyframeTrack(\.angle) {
+                            let angle = Double.random(in: -45...45)
+                            CubicKeyframe(.degrees(angle), duration: totalDuration * 0.2)
+                            CubicKeyframe(.degrees(-angle), duration: totalDuration * 0.3)
+                            LinearKeyframe(.degrees(.zero), duration: totalDuration * 0.2)
+                        }
+                        
+                        KeyframeTrack(\.scale) {
+                            CubicKeyframe(1.2, duration: totalDuration * 0.5)
+                            LinearKeyframe(1.0, duration: totalDuration * 0.2, timingCurve: .easeOut)
+                            LinearKeyframe(1.0, duration: totalDuration * 0.3)
+                            LinearKeyframe(0.0, duration: 0.01, timingCurve: .circularEaseIn)
+                        }
+                        
+                        KeyframeTrack(\.verticalOffset) {
+                            // yOffset = from top edge of the screen to the bottom tip of the heart image
+                            let yOffset = proxy.frame(in: .global).midY + heartSize / 2
+                            LinearKeyframe(0.0, duration: totalDuration * 0.7)
+                            LinearKeyframe(-yOffset, duration: totalDuration * 0.3, timingCurve: .easeIn)
+                            
+                        }
+                        
+                        KeyframeTrack(\.horizontalOffset) {
+                            let offset = Double.random(in: -40...40)
+                            LinearKeyframe(0.0, duration: totalDuration * 0.85)
+                            LinearKeyframe(offset, duration: totalDuration * 0.15)
+                        }
                     }
-                    
-                    KeyframeTrack(\.angle) {
-                        let angle = Double.random(in: -30...30)
-                        CubicKeyframe(.degrees(angle), duration: totalDuration * 0.2)
-                        CubicKeyframe(.degrees(-angle), duration: totalDuration * 0.3)
-                        LinearKeyframe(.degrees(.zero), duration: totalDuration * 0.2)
-                    }
-                    
-                    KeyframeTrack(\.scale) {
-                        CubicKeyframe(1.2, duration: totalDuration * 0.5)
-                        LinearKeyframe(1.0, duration: totalDuration * 0.2, timingCurve: .easeOut)
-                    }
-                    
-                    KeyframeTrack(\.verticalOffset) {
-                        LinearKeyframe(0.0, duration: totalDuration * 0.7)
-                        LinearKeyframe(-500, duration: totalDuration * 0.3, timingCurve: .easeIn)
-                    }
-                    
-                    KeyframeTrack(\.horizontalOffset) {
-                        let offset = Double.random(in: -40...40)
-                        LinearKeyframe(0.0, duration: totalDuration * 0.85)
-                        LinearKeyframe(offset, duration: totalDuration * 0.15)
-                    }
-                }
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+        }
     }
 }
 
 struct LikeView: View {
+    
+    let size: CGFloat
+    
     var body: some View {
         Image(systemName: "heart.fill")
-            .font(.system(size: 80))
+            .font(.system(size: size))
             .foregroundStyle(
                 .linearGradient(
                     colors: [Color(.igPink), Color(.igRed), Color(.igOrange)],
