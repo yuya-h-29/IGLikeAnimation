@@ -11,7 +11,7 @@ import SwiftUI
 struct IGLikeAnimationApp: App {
     var body: some Scene {
         WindowGroup {
-            IGPostView()
+            IGListView()
         }
     }
 }

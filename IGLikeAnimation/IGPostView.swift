@@ -9,6 +9,8 @@ import SwiftUI
 
 struct IGPostView: View {
     
+    let image: ImageResource
+    
     @State private var isLiked = false
     @State private var likeAnimationViews: [LikeAnimationView] = []
     private let animationDuration = 1.0
@@ -21,7 +23,7 @@ struct IGPostView: View {
                 // profile image and name
                 ProfileHeader()
                 
-                Image(.cherryblossom)
+                Image(image)
                     .resizable()
                     .scaledToFit()
                     .frame(maxWidth: .infinity)
@@ -64,5 +66,5 @@ struct IGPostView: View {
 }
 
 #Preview {
-    IGPostView()
+    IGPostView(image: .cherryblossom)
 }
