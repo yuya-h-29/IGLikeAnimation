@@ -10,6 +10,8 @@ import SwiftUI
 struct IGPostView: View {
     
     @State private var isLiked = false
+    @State private var likeAnimationViews: [LikeAnimationView] = []
+    private let animationDuration = 1.0
     
     var body: some View {
         
@@ -42,13 +44,22 @@ struct IGPostView: View {
                 }.padding(.horizontal, 16)
             }
             
-            // display heart when like button isPressed
-            LikeAnimationView(isLiked: isLiked)
+            ForEach(likeAnimationViews) { likeAnimationView in
+                likeAnimationView.onAppear {
+                    // when the animation ends, remove a LikeAnimationView from the array
+                    DispatchQueue.main.asyncAfter(deadline: .now() + animationDuration) {
+                        likeAnimationViews.removeFirst()
+                    }
+                }
+            }
         }
     }
     
     private func didTapLike() {
         isLiked.toggle()
+        guard isLiked else { return }
+        
+        likeAnimationViews.append(LikeAnimationView(duration: animationDuration))
     }
 }
 
