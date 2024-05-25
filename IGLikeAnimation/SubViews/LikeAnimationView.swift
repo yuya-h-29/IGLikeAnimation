@@ -24,7 +24,7 @@ struct LikeAnimationView: View, Identifiable {
     var body: some View {
         
         GeometryReader { proxy in
-            LikeView(size: heartSize)
+            HeartImageView(size: heartSize)
                 .keyframeAnimator(
                     initialValue: AnimationValues()
                 ) { content, value in
@@ -71,7 +71,7 @@ struct LikeAnimationView: View, Identifiable {
     }
 }
 
-struct LikeView: View {
+struct HeartImageView: View {
     
     let size: CGFloat
     
